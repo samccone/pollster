@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.value-selector {
+  height: 90%;
+  width: 100%;
+  top: 5%;
+  position: absolute;
+}
+
+.track {
+  width: 40px;
+  height: 100%;
+  left: calc(50% - 20px);
+  background: grey;
+  position: relative;
+}
+
+.handle {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 50%;
+  background: red;
+  cursor: pointer;
+  left: 50%;
+  z-index: 1;
+  will-change: top;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
