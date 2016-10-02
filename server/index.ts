@@ -4,7 +4,9 @@ import * as fs from 'fs';
 
 var server = http.createServer(handler)
 var io = SocketIO(server);
-var clientMap = {};
+var voteMap = {};
+var emitScheduleId = null;
+const THROTTLE_RATE = 400;
 
 server.listen(process.env.PORT || 9999);
 
@@ -13,8 +15,8 @@ function handler(req, res) {
 }
 
 function getAverageVote() {
-  const ids = Object.keys(clientMap);
-  const sum = ids.reduce(((prev, key) => prev + clientMap[key]), 0);
+  const ids = Object.keys(voteMap);
+  const sum = ids.reduce(((prev, key) => prev + voteMap[key]), 0);
 
   if (ids.length === 0) {
     return 0.5;
@@ -23,13 +25,26 @@ function getAverageVote() {
   return sum / ids.length;
 }
 
+function throttledBrodcast() {
+  if (emitScheduleId === null) {
+    emitScheduleId = setTimeout(emitAverage, THROTTLE_RATE);
+  }
+}
+
+function emitAverage() {
+  io.emit('avg', {avg: getAverageVote()});
+  emitScheduleId = null;
+}
+
 io.on('connection', function (socket) {
-  clientMap[socket.id] = 0.5;
   socket.on('vote', ({percent}) => {
     percent = Math.min(1, Math.max(0, parseFloat(percent)));
-    clientMap[socket.id] = percent;
+    voteMap[socket.id] = percent;
+    throttledBrodcast();
   });
 
-  socket.on('disconnect', () => delete clientMap[socket.id]);
+  socket.on('disconnect', () => {
+    delete voteMap[socket.id]
+  });
 });
 
