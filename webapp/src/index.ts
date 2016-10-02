@@ -1,3 +1,5 @@
+var socket = io('http://localhost:9999');
+
 class Handle {
   private elm: HTMLElement;
   private track: HTMLElement;
@@ -46,6 +48,7 @@ class Handle {
   private updateHandlePosition() {
     let nextY = this.boundingHeight * this.handlePercent;
     this.elm.style.top = `${nextY}px`;
+    socket.emit('vote', {percent: this.handlePercent});
   }
 
   private onMouseMove(e: {pageY: number}) {
