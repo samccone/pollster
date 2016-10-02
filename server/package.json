@@ -1,0 +1,8 @@
+{
+  "name": "pollster-server",
+  "dependencies": {
+    "@types/node": "^6.0.41",
+    "@types/socket.io": "^1.4.27",
+    "socket.io": "^1.4.8"
+  }
+}

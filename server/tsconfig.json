@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "outDir": "dist",
+        "rootDir": "src"
+    },
+    "exclude": [
+         "node_modules",
+         "typings"
+    ],
+    "types": [
+      "node",
+      "socket.io"
+    ]
+}
