@@ -1,3 +1,5 @@
+declare var io:any;
+
 var socket = io('http://localhost:9999');
 
 class Handle {

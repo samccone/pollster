@@ -1,6 +1,6 @@
 ### Setup
 
-`npm i -g typescript@2`
+`npm i -g typescript@2 && npm i`
 
 ### Compiling
 
