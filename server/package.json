@@ -1,8 +1,13 @@
 {
   "name": "pollster-server",
+  "scripts": {
+    "build": "tsc index.ts",
+    "start": "node index.js"
+  },
   "dependencies": {
     "@types/node": "^6.0.41",
     "@types/socket.io": "^1.4.27",
-    "socket.io": "^1.4.8"
+    "socket.io": "^1.4.8",
+    "typescript": "^2.0.3"
   }
 }

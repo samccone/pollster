@@ -1,5 +1,12 @@
 {
+  "name": "pollster-frontend",
   "dependencies": {
-    "socket.io-client": "^1.4.8"
+    "list": "latest",
+    "socket.io-client": "^1.4.8",
+    "typescript": "^2.0.3"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "list ./"
   }
 }

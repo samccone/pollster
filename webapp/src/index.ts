@@ -1,6 +1,6 @@
 declare var io:any;
 
-var socket = io('http://localhost:9999');
+var socket = io('https://pollster-server-dbrxqijicj.now.sh');
 
 class Handle {
   private elm: HTMLElement;
