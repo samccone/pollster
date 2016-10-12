@@ -50,7 +50,9 @@ class Handle {
   private updateHandlePosition() {
     let nextY = this.boundingHeight * this.handlePercent;
     this.elm.style.top = `${nextY}px`;
-    socket.emit('vote', {percent: this.handlePercent});
+    setTimeout(() => {
+      socket.emit('vote', {percent: this.handlePercent});
+    }, 0);
   }
 
   private onMouseMove(e: {pageY: number}) {
