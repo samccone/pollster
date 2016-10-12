@@ -2,13 +2,16 @@
 
 <html>
   <head>
-  <link rel="stylesheet" type="text/css" href="app.css" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="app.css" >
   </head>
   <body>
+    <div class="label impact">Big Impact</div>
     <div class="value-selector">
-      <div class="handle"></div>
+      <div class="handle"><div class="focus-handle"></div></div>
       <div class="track"></div>
     </div>
+    <div class="label no-impact">No Impact</div>
     <script src="/node_modules/socket.io-client/socket.io.js"></script>
     <script src="/dist/index.js"></script>
   </body>

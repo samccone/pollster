@@ -4,9 +4,9 @@
 }
 
 .value-selector {
-  height: 90%;
+  height: 70%;
   width: 100%;
-  top: 5%;
+  top: 15%;
   position: absolute;
 }
 
@@ -14,20 +14,45 @@
   width: 40px;
   height: 100%;
   left: calc(50% - 20px);
-  background: grey;
+  background: #BDBDBD;
   position: relative;
+  border-radius: 5px;
 }
 
 .handle {
+  top: 50%;
   width: 70px;
   height: 70px;
   position: absolute;
   transform: translateX(-50%) translateY(-50%);
   border-radius: 50%;
-  background: red;
+  background: #616161;
   cursor: pointer;
   left: 50%;
   z-index: 1;
-  will-change: top;
+  will-change: transform;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.label {
+  font-family: roboto, helvetica;
+  font-size: 37px;
+  text-align: center;
+  padding: 14px;
+  box-sizing: border-box;
+  height: 10%;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  height: 10%;
+}
+
+.impact {
+  background: #009688;
+}
+
+.no-impact {
+  background: #F44336;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
