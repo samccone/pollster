@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+body {
+  overflow-y: hidden;
+}
+
 .value-selector {
   height: 70%;
   width: 100%;
