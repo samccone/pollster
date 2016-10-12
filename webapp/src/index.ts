@@ -24,13 +24,13 @@ class Handle {
 
 
   private setEventListeners() {
-    this.elm.addEventListener('mousedown', e => this.onMouseDown(e as MouseEvent));
+    document.body.addEventListener('mousedown', e => this.onMouseDown(e as MouseEvent));
     this.track.addEventListener('mousedown', e => this.onTrackDown(e as MouseEvent));
     document.body.addEventListener('mousemove', e => this.onMouseMove(e as MouseEvent));
     document.body.addEventListener('mouseleave', e => this.onMouseUp(e as MouseEvent));
     document.body.addEventListener('mouseup', e => this.onMouseUp(e as MouseEvent));
 
-    this.elm.addEventListener('touchstart', e => this.onTouchDown(e as TouchEvent));
+    document.body.addEventListener('touchstart', e => this.onTouchDown(e as TouchEvent));
     this.track.addEventListener('touchstart', e => this.onTrackTouchDown(e as TouchEvent));
     document.body.addEventListener('touchend', e => this.onMouseUp(e as TouchEvent));
     document.body.addEventListener('touchmove', e => this.onTouchMove(e as TouchEvent));
