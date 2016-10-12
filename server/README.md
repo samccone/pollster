@@ -2,8 +2,8 @@ Pollster server.
 
 ### Setup
 
-`npm i -g typescript@2`
-`npm i`
+`yarn install -g typescript@2`
+`yarn install`
 
 ### Running
 
