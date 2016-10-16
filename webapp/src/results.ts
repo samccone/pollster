@@ -71,7 +71,7 @@ function tick() {
     rafId = null;
     ctx.clearRect(0, 0, width, height);
 
-    ctx.fillStyle = `hsl(${greenHue - (score * greenHue)}, 50%, 50%)`;
+    ctx.fillStyle = `hsl(${greenHue - (score * greenHue)}, 50%, 80%)`;
     ctx.fillRect(0, 0, width, height);
     ctx.fillStyle = grd;
 
