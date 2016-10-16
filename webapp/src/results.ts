@@ -1,6 +1,6 @@
 declare var io:any;
 
-var socket = io('https://pollster-server-dbrxqijicj.now.sh');
+var socket = io('https://pollster-server-ceyutkgvjm.now.sh/');
 const results = document.querySelector('#results') as HTMLCanvasElement;
 
 var height = window.innerHeight;
