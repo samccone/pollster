@@ -65,6 +65,12 @@ function tick() {
   rafId = requestAnimationFrame(() => {
     rafId = null;
     ctx.clearRect(0, 0, width, height);
+
+    ctx.fillStyle = `hsl(${120 - (score * 120)}, 50%, 50%)`;
+    ctx.fillRect(0, 0, width, height);
+    ctx.fillStyle = grd;
+
+
     drawPrevious();
     ctx.beginPath()
     ctx.arc(previous.length * 10, Math.floor(score * height), 20, 0, 2 * Math.PI);
