@@ -21,6 +21,7 @@ body {
   background: #BDBDBD;
   position: relative;
   border-radius: 5px;
+  border: 1px solid #868686;
 }
 
 .handle {
@@ -36,6 +37,11 @@ body {
   z-index: 1;
   will-change: transform;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.handle.touchdown {
+  background: #565656;
+  box-shadow: 0 0 7px 0px #009688;
 }
 
 .label {

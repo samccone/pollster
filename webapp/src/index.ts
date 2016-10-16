@@ -41,6 +41,10 @@ class Handle {
     });
   }
 
+  private highlightHandle(bool) {
+    this.elm.classList.toggle('touchdown', bool);
+  }
+
   private updateBounds() {
     let rect = this.boundingElm.getBoundingClientRect();
     this.boundingHeight = rect.height;
@@ -83,10 +87,12 @@ class Handle {
   }
 
   private onMouseDown(e: any) {
+    this.highlightHandle(true);
     this.dragging = true;
   }
 
   private onMouseUp(e: any) {
+    this.highlightHandle(false);
     this.dragging = false;
   }
 }
