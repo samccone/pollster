@@ -10,6 +10,7 @@ class Handle {
   private boundingTopOffset: number;
   private dragging: Boolean = false;
   private handlePercent: number = 0.5;
+  private tid: number | undefined;
 
   constructor() {
     this.elm = document.querySelector('.handle') as HTMLElement;
@@ -54,9 +55,20 @@ class Handle {
   private updateHandlePosition() {
     let nextY = this.boundingHeight * this.handlePercent;
     this.elm.style.top = `${nextY}px`;
-    setTimeout(() => {
+    this.throttle(() => {
+      updateStatus(`sent: ${(1 - this.handlePercent).toFixed(3)}`)
       socket.emit('vote', {percent: this.handlePercent});
-    }, 0);
+    });
+  }
+
+  private throttle(fn) {
+    if (this.tid)
+      return;
+
+    this.tid = setTimeout(_ => {
+      fn();
+      this.tid = undefined;
+    }, 200);
   }
 
   private onMouseMove(e: {pageY: number}) {
@@ -98,3 +110,13 @@ class Handle {
 }
 
 new Handle();
+
+socket.on('connect', _ => updateStatus('connected.'));
+socket.on('reconnect', _ => updateStatus('connected.'));
+
+socket.on('error', _ => updateStatus('error. :('));
+socket.on('disconnect', _ => updateStatus('disconnected.'));
+
+function updateStatus(msg: string) {
+  document.querySelector('.status').textContent = msg;
+}

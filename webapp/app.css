@@ -66,3 +66,12 @@ body {
   bottom: 0;
   width: 100%;
 }
+
+.status {
+  position: absolute;
+  bottom: 12%;
+  right: 2%;
+  font-family: monospace;
+  font-size: 20px;
+  color: #676767;
+}
