@@ -32,7 +32,10 @@ function throttledBrodcast() {
 }
 
 function emitAverage() {
-  io.emit('avg', {avg: getAverageVote()});
+  io.emit('avg', {
+    avg: getAverageVote(),
+    userCount: Object.keys(voteMap).length,
+  });
   emitScheduleId = null;
 }
 
