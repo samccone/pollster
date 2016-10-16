@@ -14,11 +14,13 @@ var filled = false;
 results.setAttribute('height', `${height}px`);
 results.setAttribute('width', `${width}px`);
 
-var lineWidth = 25;
-
 const ctx = results.getContext('2d');
+var lineWidth = 25;
 ctx.lineWidth = lineWidth;
+
 var score = 0.5;
+var totalUsers = 0;
+var userCountElem = document.querySelector('.user-count span');
 
 var grd = ctx.createLinearGradient(0,0,0,height);
 grd.addColorStop(0, '#009688');
@@ -39,8 +41,9 @@ window.addEventListener('resize', () => {
   ctx.lineWidth = lineWidth;
 });
 
-socket.on('avg', function({avg}) {
+socket.on('avg', function({avg, userCount}) {
   score = avg;
+  userCountElem.textContent = userCount;
 });
 
 function drawPrevious() {

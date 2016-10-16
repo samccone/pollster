@@ -9,10 +9,21 @@
       canvas {
         display: block;
       }
+      .user-count {
+        position: absolute;
+        bottom: 70px;
+        left: 20px;
+        font-size: 68px;
+        font-family: Roboto, sans-serif;
+      }
+      .user-count > span {
+        font-size: 98px;
+      }
     </style>
   </head>
   <body>
     <canvas id="results"></canvas>
+    <div class="user-count"><span>0</span> peoples</div>
   </body>
   <script src="/node_modules/socket.io-client/socket.io.js"></script>
   <script src="/dist/results.js"></script>
