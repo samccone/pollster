@@ -14,15 +14,17 @@ var filled = false;
 results.setAttribute('height', `${height}px`);
 results.setAttribute('width', `${width}px`);
 
+var lineWidth = 25;
+
 const ctx = results.getContext('2d');
-ctx.lineWidth = 5;
+ctx.lineWidth = lineWidth;
 var score = 0.5;
 
 var grd = ctx.createLinearGradient(0,0,0,height);
 grd.addColorStop(0, '#009688');
 grd.addColorStop(1, '#F44336');
 ctx.fillStyle = grd;
-ctx.strokeStyle= grd;
+ctx.strokeStyle = grd;
 
 window.addEventListener('resize', () => {
   height = window.innerHeight;
@@ -34,7 +36,7 @@ window.addEventListener('resize', () => {
   grd.addColorStop(1, '#F44336');
   ctx.fillStyle = grd;
   ctx.strokeStyle = grd;
-  ctx.lineWidth = 5;
+  ctx.lineWidth = lineWidth;
 });
 
 socket.on('avg', function({avg}) {
@@ -56,7 +58,7 @@ function drawPrevious() {
   ctx.closePath();
 }
 
-
+var greenHue = 174;
 function tick() {
   if (rafId !== null) {
     return;
@@ -66,14 +68,14 @@ function tick() {
     rafId = null;
     ctx.clearRect(0, 0, width, height);
 
-    ctx.fillStyle = `hsl(${120 - (score * 120)}, 50%, 50%)`;
+    ctx.fillStyle = `hsl(${greenHue - (score * greenHue)}, 50%, 50%)`;
     ctx.fillRect(0, 0, width, height);
     ctx.fillStyle = grd;
 
 
     drawPrevious();
     ctx.beginPath()
-    ctx.arc(previous.length * 10, Math.floor(score * height), 20, 0, 2 * Math.PI);
+    ctx.arc(previous.length * 10, Math.floor(score * height), 40, 0, 2 * Math.PI);
     ctx.fill();
     ctx.closePath();
     sampleCount++;
